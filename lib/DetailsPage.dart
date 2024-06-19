@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lab4_getx_revision/CartController.dart';
@@ -51,13 +52,16 @@ class _DetailsPageState extends State<DetailsPage> {
             Spacer(
               flex: 2,
             ),
-            Container(
-              width: 300.0,
-              height: 280.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.shoeImage),
-                  fit: BoxFit.cover,
+            Hero(
+              tag: widget.shoeImage,
+              child: Container(
+                width: 300.0,
+                height: 280.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.shoeImage),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

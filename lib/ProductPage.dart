@@ -75,22 +75,25 @@ class ProductListTile extends StatelessWidget {
           const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3), // changes position of shadow
+            child: Hero(
+              tag: shoeImage[0],
+              child: Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  image: DecorationImage(
+                    image: AssetImage(shoeImage[0]),
+                    fit: BoxFit.cover,
                   ),
-                ],
-                image: DecorationImage(
-                  image: AssetImage(shoeImage[0]),
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
