@@ -113,6 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
+                    if(value!=null)
                     setState(() {
                       quantity++;
                     });
