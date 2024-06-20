@@ -24,7 +24,7 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     var cartController =
-        Get.find<CartController>(); //find controlelr injected in frst page
+        Get.find<CartController>(); //find controller injected in first page
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -90,6 +90,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   onChanged: (String? newSize) {
                     setState(() {
                       value = newSize!;
+                      quantity = 0;
                     });
                   },
                   items:
