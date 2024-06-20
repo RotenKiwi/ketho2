@@ -26,7 +26,7 @@ class _CartpageState extends State<Cartpage> {
             itemCount: cartController.cartItemsName.length,
             itemBuilder: (context, index) {
               return CartListTile(
-                quantity: cartController.cartItemsQuantity[index],
+                quantity: cartController.cartItemsQuantity[index].toString(),
                 size: cartController.cartItemsName[index][2],
                 shoeImage: cartController.cartItemsName[index][0],
                 index: index,

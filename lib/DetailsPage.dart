@@ -34,7 +34,7 @@ class _DetailsPageState extends State<DetailsPage> {
             icon: Obx(() => cartController.cartItemsName.length > 0
                 ? Badge(
                     label: Text(
-                      cartController.cartItemsName.length.toString(),
+                      cartController.sumOfQuantity().toString(),
                       style: TextStyle(color: Colors.white),
                     ),
                     child: Icon(Icons.shopping_cart),

@@ -5,14 +5,14 @@ class CartController extends GetxController {
   var cartItemsName = [].obs;
 
   void addToCart(List<String> namesize, String quantity) {
-    if (double.parse(quantity) == 0) {
+    if (int.parse(quantity) == 0) {
       cartItemsName.add(namesize);
-      cartItemsQuantity.add((double.parse(quantity)+1).toString());
+      cartItemsQuantity.add((int.parse(quantity) + 1));
     } else {
       cartItemsName.removeLast();
       cartItemsName.add(namesize);
       cartItemsQuantity.removeLast();
-      cartItemsQuantity.add((int.parse(quantity)+1).toString());
+      cartItemsQuantity.add((int.parse(quantity) + 1));
     }
   }
 
@@ -24,6 +24,14 @@ class CartController extends GetxController {
   void reduceQuantity(int item) {
     cartItemsQuantity.removeLast();
     int newQuantity = item - 1;
-    cartItemsQuantity.add(newQuantity.toString());
+    cartItemsQuantity.add(newQuantity);
+  }
+
+  int sumOfQuantity() {
+    int sum =0;
+    for(int i = 0; i<cartItemsQuantity.length; i++){
+      sum += cartItemsQuantity[i] as int;
+    }
+    return sum;
   }
 }
