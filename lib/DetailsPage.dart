@@ -41,6 +41,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   )
                 : Icon(Icons.shopping_cart)),
             onPressed: () {
+              if (cartController.cartItemsName.length > 0)
               Get.to(() => Cartpage());
             },
           ),
