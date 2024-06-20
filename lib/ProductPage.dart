@@ -119,7 +119,7 @@ class ProductListTile extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.add_circle),
             onPressed: () {
-              Get.to(() => DetailsPage(shoeImage: shoeImage[0],));
+              Get.to(() => DetailsPage(shoeImage: shoeImage[0], showName: shoeName[0]));
             },
           ),
           const Spacer(),

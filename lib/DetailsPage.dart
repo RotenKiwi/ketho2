@@ -8,8 +8,9 @@ import 'package:lab4_getx_revision/Cartpage.dart';
 
 class DetailsPage extends StatefulWidget {
   final String shoeImage;
+  final String showName;
 
-  DetailsPage({super.key, required this.shoeImage});
+  DetailsPage({super.key, required this.shoeImage, required this.showName});
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -30,10 +31,10 @@ class _DetailsPageState extends State<DetailsPage> {
         title: const Text('Details', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
-            icon: Obx(() => cartController.cartItems.length > 0
+            icon: Obx(() => cartController.cartItemsName.length > 0
                 ? Badge(
                     label: Text(
-                      cartController.cartItems.length.toString(),
+                      cartController.cartItemsName.length.toString(),
                       style: TextStyle(color: Colors.white),
                     ),
                     child: Icon(Icons.shopping_cart),
@@ -69,7 +70,7 @@ class _DetailsPageState extends State<DetailsPage> {
               height: 20,
             ),
             Text(
-              'Kaptir Super',
+              widget.showName,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -113,10 +114,12 @@ class _DetailsPageState extends State<DetailsPage> {
                 IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
-                    if(value!=null)
-                    setState(() {
-                      quantity++;
-                    });
+                    if (value != null)
+                      setState(() {
+                        cartController.addToCart([widget.shoeImage, widget.showName, value!], quantity.toString());
+                        quantity++;
+                        print(cartController.cartItemsName);
+                      });
                   },
                 ),
                 Text(
@@ -128,21 +131,13 @@ class _DetailsPageState extends State<DetailsPage> {
                   onPressed: () {
                     setState(() {
                       if (quantity > 0) {
+                        cartController.reduceQuantity(quantity);
                         quantity--;
+
                       }
                     });
                   },
                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Add to Cart'),
-                IconButton(onPressed: (){
-                  cartController.addToCart(
-                      [widget.shoeImage, quantity.toString(), value.toString()]);
-                }, icon: Icon(Icons.check_box, color: Colors.green,)),
               ],
             ),
             Spacer(
