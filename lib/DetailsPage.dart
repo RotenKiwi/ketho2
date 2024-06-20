@@ -31,7 +31,7 @@ class _DetailsPageState extends State<DetailsPage> {
         title: const Text('Details', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
-            icon: Obx(() => cartController.cartItemsName.length > 0
+            icon: Obx(() => cartController.cartItemsQuantity.length > 0
                 ? Badge(
                     label: Text(
                       cartController.sumOfQuantity().toString(),
