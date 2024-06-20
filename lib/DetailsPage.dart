@@ -41,7 +41,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   )
                 : Icon(Icons.shopping_cart)),
             onPressed: () {
-              if (cartController.cartItemsName.length > 0)
+              if (cartController.cartItemsQuantity.length > 0)
               Get.to(() => Cartpage());
             },
           ),
@@ -120,7 +120,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       setState(() {
                         cartController.addToCart([widget.shoeImage, widget.showName, value!], quantity.toString());
                         quantity++;
-                        print(cartController.cartItemsName);
+                        print(cartController.cartItemsQuantity.length);
                       });
                   },
                 ),
@@ -135,8 +135,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       if (quantity > 0) {
                         cartController.reduceQuantity(quantity);
                         quantity--;
-
                       }
+                      print(cartController.cartItemsQuantity.length);
                     });
                   },
                 ),

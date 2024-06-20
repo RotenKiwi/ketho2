@@ -23,8 +23,9 @@ class CartController extends GetxController {
 
   void reduceQuantity(int item) {
     cartItemsQuantity.removeLast();
+    if(item !=1){
     int newQuantity = item - 1;
-    cartItemsQuantity.add(newQuantity);
+    cartItemsQuantity.add(newQuantity);}
   }
 
   int sumOfQuantity() {

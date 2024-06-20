@@ -23,7 +23,7 @@ class _CartpageState extends State<Cartpage> {
         ),
         body: Obx(
           () => ListView.builder(
-            itemCount: cartController.cartItemsName.length,
+            itemCount: cartController.cartItemsQuantity.length,
             itemBuilder: (context, index) {
               return CartListTile(
                 quantity: cartController.cartItemsQuantity[index].toString(),
